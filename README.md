@@ -5,9 +5,10 @@
 ## วิธีการใช้งาน
 - clone git
 ```bash
-- pip install -r requirements.txt
-```
-```bash
 - git clone https://github.com/sakkarin31/PM2.5project.git
 ```
+```bash
+- pip install -r requirements.txt
+```
+
 - Run dash_app.py และ เข้าสู่หน้าเว็ปไซต์ http://127.0.0.1:8080/
