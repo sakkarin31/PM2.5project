@@ -13,7 +13,8 @@ import dash_bootstrap_components as dbc
 app = Dash(__name__, external_stylesheets=[dbc.themes.CERULEAN, 'assets/style.css'])
 # Incorporate data
 df = pd.read_csv('data_cleaned_air4thai.csv')
-dt = pd.read_csv('data_model_predict.csv')
+#df = pd.read_csv('Main_Folder\data_cleaned_air4thai.csv')
+
 # App layout
 app.layout = dbc.Container([
     dbc.Row([
@@ -103,6 +104,7 @@ def update_bar_chart(selected_pollutant):
 )
 def update_prediction_graph(n_clicks):
     prediction_data = pd.read_csv('data_model_predict.csv')
+    #prediction_data = pd.read_csv('Main_Folder\data_model_predict.csv')
     fig = px.line(prediction_data, x='DATETIMEDATA', y='RH', title='Predicted RH Graph for Next Week')
     fig.update_xaxes(title='Date and Time')
     fig.update_yaxes(title='Relative Humidity (%)')
@@ -115,6 +117,7 @@ def update_prediction_graph(n_clicks):
 )
 def update_prediction_graph_2(n_clicks):
     prediction_data = pd.read_csv('data_model_predict.csv')
+    #prediction_data = pd.read_csv('Main_Folder\data_model_predict.csv')
     fig = px.line(prediction_data, x='DATETIMEDATA', y='PM25', title='Predicted PM Graph for Next Week')
     fig.update_xaxes(title='Date and Time')
     fig.update_yaxes(title='Particulate Matter 2.5 (µg/m³)')
