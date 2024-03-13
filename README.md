@@ -10,4 +10,4 @@
 ```bash
 - git clone https://github.com/sakkarin31/PM2.5project.git
 ```
--Run 
+- Run dash_app.py และ เข้าสู่หน้าเว็ปไซต์ http://127.0.0.1:8080/
