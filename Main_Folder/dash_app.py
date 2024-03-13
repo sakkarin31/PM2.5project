@@ -12,17 +12,21 @@ import plotly.express as px
 import dash_bootstrap_components as dbc
 
 # Incorporate data
-df = pd.read_csv('data_cleaned_air4thai.csv')
+df = pd.read_csv('Main_Folder\data_cleaned_air4thai.csv')
 
 # Initialize the app - incorporate a Dash Bootstrap theme
-external_stylesheets = [dbc.themes.CERULEAN]
-app = Dash(__name__, external_stylesheets=external_stylesheets)
+
+app = Dash(__name__, external_stylesheets=[dbc.themes.CERULEAN])
+
+
 
 # App layout
 app.layout = dbc.Container([
-    dbc.Row([
+    dbc.Navbar([
         html.Div('Air Predictive Analytics', className="text-primary text-center fs-3")
-    ]),
+    ],
+    color="#0F1A43",
+    ),
 
     dbc.Row([
         dbc.Col([
@@ -100,7 +104,7 @@ def update_bar_chart(selected_pollutant):
     Input(component_id='prediction-button', component_property='n_clicks')
 )
 def update_prediction_graph(n_clicks):
-    prediction_data = pd.read_csv('data_model_predict.csv')
+    prediction_data = pd.read_csv('Main_Folder\data_model_predict.csv')
     fig = px.line(prediction_data, x='DATETIMEDATA', y='RH', title='Predicted RH for Next Week')
     fig.update_xaxes(title='Date and Time')
     fig.update_yaxes(title='Relative Humidity (%)')
@@ -112,7 +116,7 @@ def update_prediction_graph(n_clicks):
     Input(component_id='prediction-button', component_property='n_clicks')
 )
 def update_prediction_graph_2(n_clicks):
-    prediction_data = pd.read_csv('data_model_predict.csv')
+    prediction_data = pd.read_csv('Main_Folder\data_model_predict.csv')
     fig = px.line(prediction_data, x='DATETIMEDATA', y='PM25', title='Predicted PM for Next Week')
     fig.update_xaxes(title='Date and Time')
     fig.update_yaxes(title='Particulate Matter 2.5 (µg/m³)')
